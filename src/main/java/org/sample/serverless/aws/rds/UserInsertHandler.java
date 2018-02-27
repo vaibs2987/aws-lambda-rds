@@ -5,7 +5,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class EmployeeHandler implements RequestHandler<Request, String> {
+public class UserInsertHandler implements RequestHandler<Request, String> {
 
 	@Override
 	public String handleRequest(Request request, Context context) {
@@ -14,12 +14,12 @@ public class EmployeeHandler implements RequestHandler<Request, String> {
 		try (Session session = sessionFactory.openSession()) {
 			session.beginTransaction();
 			User user = new User();
-			user.setId(request.id);
-			user.setName(request.name);
+			user.setId(request.getId());
+			user.setName(request.getName());
 			session.save(user);
 			session.getTransaction().commit();
 		}
 
-		return String.format("Added %s %s.", request.id, request.name);
+		return String.format("Added %s %s.", request.getId(), request.getName());
 	}
 }

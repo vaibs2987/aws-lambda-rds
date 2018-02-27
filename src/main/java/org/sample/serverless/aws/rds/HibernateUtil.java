@@ -15,11 +15,11 @@ public class HibernateUtil {
 
 		Configuration configuration = new Configuration();
 
-		String jdbcUrl = "jdbc:mysql://127.0.1.1/test";
+		String jdbcUrl = "jdbc:mysql://x.x.x.x/xxx";
 
 		configuration.setProperty("hibernate.connection.url", jdbcUrl);
-		configuration.setProperty("hibernate.connection.username", "test");
-		configuration.setProperty("hibernate.connection.password", "test");
+		configuration.setProperty("hibernate.connection.username", "xx");
+		configuration.setProperty("hibernate.connection.password", "xx");
 		configuration.addAnnotatedClass(User.class);
 		configuration.configure();
 		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
