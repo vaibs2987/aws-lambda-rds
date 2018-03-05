@@ -14,7 +14,6 @@ public class UserInsertHandler implements RequestHandler<Request, String> {
 		try (Session session = sessionFactory.openSession()) {
 			session.beginTransaction();
 			User user = new User();
-			user.setId(request.getId());
 			user.setName(request.getName());
 			session.save(user);
 			session.getTransaction().commit();
